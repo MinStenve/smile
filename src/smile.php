@@ -11,7 +11,7 @@ defined('DEFAULT_LANG') or define('DEFAULT_LANG', 'zh-CN'); // 默认使用语�
 defined('DEFAULT_ERROR_MESSAGE') or define('DEFAULT_ERROR_MESSAGE', 'We encountered some problems, please try again later.'); // 遇到错误时默认提示信息
 
 /**
- * 应用池 ,保存和每个应用（Handler）
+ * 核心类。初始化以及路由调度。
  */
 class Application
 {
@@ -89,12 +89,12 @@ class Application
     }
 
     /**
-     *  执行一些收尾处理
+     * 执行一些收尾处理
      * @param bool $is404 是否是404 状态
      */
     public static function finish($is404)
     {
-        $is404 or header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
+		$is404 or header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
 		if (DEBUG)
 		{
 			$time = round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 4);
