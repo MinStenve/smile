@@ -102,7 +102,7 @@ class Application
             $mem = $mem > 1024 ? ($mem / 1024 . ' MB') : $mem . ' KB';
             header('X-Time-Usage: ' . $time);
             header('X-Memory-Usage: ' . $mem);
-		}
+        }
         ob_end_flush();
     }
 
