@@ -347,34 +347,21 @@ var_dump($email);
 
 除此之外。Request 类海封装了。`isAjax`,`getClientIP`等方法，方便开发。
 
-<table><thead>
-<tr>
-<th>方法名字</th>
-<th>函数作用</th>
-<th>其他</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>isAjax</td>
-<td>是否是 Ajax 请求</td>
-<td>如果传入一个参数名字，只要这个请求中参数存在且值为 true 也会通过这个判断</td>
-</tr>
-<tr>
-<td>getClientIP</td>
-<td>返回用户 IP</td>
-<td></td>
-</tr>
-<tr>
-<td>getAcceptLang</td>
-<td>返回用户可以接受的语言</td>
-<td>多语言情况下根据用户返回不同语言</td>
-</tr>
-<tr>
-<td>getAccept</td>
-<td>返回用户接受的文档类型</td>
-<td>在 restful 风格下，可以判断需要返回的文件类型</td>
-</tr>
-</tbody></table>
+|方法名字|函数作用|其他|
+|--------|--------|----|
+|isAjax|是否是 Ajax 请求|如果传入一个参数名字，只要这个请求中参数存在且值为 true 也会通过这个判断|
+|getClientIP|返回用户 IP||
+|getAcceptLang|返回用户可以接受的语言|多语言情况下根据用户返回不同语言|
+|getAccept|返回用户接受的文档类型|在 restful 风格下，可以判断需要返回的文件类型|
+
++------------------------+------------+----------+----------+
+| Header row, column 1   | Header 2   | Header 3 | Header 4 |
+| (header rows optional) |            |          |          |
++========================+============+==========+==========+
+| body row 1, column 1   | column 2   | column 3 | column 4 |
++------------------------+------------+----------+----------+
+| body row 2             | ...        | ...      |          |
++------------------------+------------+----------+----------+
 
 ## 模版
 Smile 没有去实现一套模版语言，直接在模版文件中使用 php 代码。这样使用起来既灵活又方便，不需要增加额外的学习负担。
