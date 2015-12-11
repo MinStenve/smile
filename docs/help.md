@@ -177,7 +177,7 @@ include 'smile.php'; // 引入框架。
 ```
 <?php
 
-define("DEBUG", true); // 开启 debug 便于开发调试。在引入框架前定义。
+define("DEBUG", true); // 开启调试模式便于开发调试。在引入框架前定义。
 define('APP_PATH', '/var/site/php/'); // 定义应用目录
 define('LOG_PATH', APP_PATH . 'Log/'); // 日志生成目录
 define('LANG_PATH', APP_PATH . 'Lang/'); // 语言包目录
@@ -748,5 +748,8 @@ echo \Lang::get('hello.man', array('name' => '张三'));
 echo \Lang::get('hello.man', array('name' => '张三', 'face' => '^_^'));
 ......
 ```
+## 性能分析
+在开启调试模式的时候，Smile 会把请求运行消耗时间和消耗的内存，写入 header 返回给客户端。`X-Time-Usage` 记录此次请求耗时，单位是秒。`X-Memory-Usage` 记录此次请求服务器消耗内存峰值。
+Smile 没有把这些信息直接展示在页面里，这样对页面入侵太大。而且在 restful 风格下大多是数据的交互。把这些信息写在 header 里面，可以在各种场景下记录这个时间。也可以在用压力测试工具的时候方便的展示这些信息。
 
 ## 建议反馈

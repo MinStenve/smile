@@ -95,9 +95,14 @@ class Application
     public static function finish($is404)
     {
         $is404 or header($_SERVER["SERVER_PROTOCOL"] . " 404 Not Found");
-        $time = round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 4);
-        $mem = memory_get_peak_usage(true) / 1024;
-        $mem = $mem > 1024 ? ($mem / 1024 . 'MB') : $mem . 'KB';
+		if (DEBUG)
+		{
+			$time = round(microtime(true) - $_SERVER['REQUEST_TIME_FLOAT'], 4);
+			$mem = memory_get_peak_usage(true) / 1024;
+			$mem = $mem > 1024 ? ($mem / 1024 . ' MB') : $mem . ' KB';
+			header('X-Time-Usage: ' . $time);
+			header('X-Memory-Usage: ' . $mem);
+		}
         ob_end_flush();
     }
 
