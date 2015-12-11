@@ -347,12 +347,34 @@ var_dump($email);
 
 除此之外。Request 类海封装了。`isAjax`,`getClientIP`等方法，方便开发。
 
-|方法名字|函数作用|其他|
-|--------|--------|----|
-|isAjax|是否是 Ajax 请求|如果传入一个参数名字，只要这个请求中参数存在且值为 true 也会通过这个判断|
-|getClientIP|返回用户 IP||
-|getAcceptLang|返回用户可以接受的语言|多语言情况下根据用户返回不同语言|
-|getAccept|返回用户接受的文档类型|在 restful 风格下，可以判断需要返回的文件类型|
+<table><thead>
+<tr>
+<th>方法名字</th>
+<th>函数作用</th>
+<th>其他</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>isAjax</td>
+<td>是否是 Ajax 请求</td>
+<td>如果传入一个参数名字，只要这个请求中参数存在且值为 true 也会通过这个判断</td>
+</tr>
+<tr>
+<td>getClientIP</td>
+<td>返回用户 IP</td>
+<td></td>
+</tr>
+<tr>
+<td>getAcceptLang</td>
+<td>返回用户可以接受的语言</td>
+<td>多语言情况下根据用户返回不同语言</td>
+</tr>
+<tr>
+<td>getAccept</td>
+<td>返回用户接受的文档类型</td>
+<td>在 restful 风格下，可以判断需要返回的文件类型</td>
+</tr>
+</tbody></table>
 
 ## 模版
 Smile 没有去实现一套模版语言，直接在模版文件中使用 php 代码。这样使用起来既灵活又方便，不需要增加额外的学习负担。
@@ -437,7 +459,7 @@ $db = new \DB('mysql:dbname=testdb;host=127.0.0.1', 'user', 'password', array('c
 
 ```
 
-#### 操作数据库
+### 操作数据库
 
 `get()` 方法查询数据库并返回一条数据。第一个参数 `$sql` 是 SQL 语句，支持参数绑定。第二个参数可选参数，是绑定的参数，必须是数组。第三个参数是，查询选项设定，一般留空就可。如：
 
