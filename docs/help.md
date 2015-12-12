@@ -753,7 +753,7 @@ Smile 没有把这些信息直接展示在页面里，这样对页面入侵太�
 
 ## 更多信息
 
-想要了解更多的信息，请访问(smile.laoma.im)[http://smile.laoma.im]
+想要了解更多的信息，请访问 [smile.laoma.im](http://smile.laoma.im)
 
 ##意见与反馈
-如果有建议可以通过 (Issues)[https://github.com/laomafeima/smile/issues] 或者 (Email)[mailto:laomafeima@gmail.com] 进行反馈。
+如果有建议可以通过 [Issues](https://github.com/laomafeima/smile/issues) 或者 [Email](mailto:laomafeima@gmail.com) 进行反馈。
