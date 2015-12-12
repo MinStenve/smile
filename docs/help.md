@@ -751,4 +751,9 @@ echo \Lang::get('hello.man', array('name' => '张三', 'face' => '^_^'));
 在开启调试模式的时候，Smile 会把请求运行消耗时间和消耗的内存，写入 header 返回给客户端。`X-Time-Usage` 记录此次请求耗时，单位是秒。`X-Memory-Usage` 记录此次请求服务器消耗内存峰值。
 Smile 没有把这些信息直接展示在页面里，这样对页面入侵太大。而且在 restful 风格下大多是数据的交互。把这些信息写在 header 里面，可以在各种场景下记录这个时间。也可以在用压力测试工具的时候方便的展示这些信息。
 
-## 建议反馈
+## 更多信息
+
+想要了解更多的信息，请访问(smile.laoma.im)[http://smile.laoma.im]
+
+##意见与反馈
+如果有建议可以通过 (Issues)[https://github.com/laomafeima/smile/issues] 或者 (Email)[mailto:laomafeima@gmail.com] 进行反馈。
