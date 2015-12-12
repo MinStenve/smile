@@ -112,8 +112,8 @@ class Indexhandler
 <p>Smile 默认命名空间前缀常量 <code>CLASS_PREFIX</code>。默认为 <code>App\</code>。<br>
 <em>不在命名空间前缀 <code>CLASS_PREFIX</code> 的不会去加载它，可以通过自定义实现其他命名空间前缀的自动加载</em>
 自动加载基础目录为常量 <code>APP_PATH</code>。默认 APP_PATH 目录为当前文件执行的目。
-如果 APP_PATH 的路径为 <code>/var/www/site/src/</code> 
-下面的 php 文件路径为 <code>/var/www/site/src/Handler/IndexHandler.php</code></p>
+如果 APP_PATH 的路径为 <code>/var/site/src/</code> 
+下面的 php 文件路径为 <code>/var/site/src/Handler/IndexHandler.php</code></p>
 
 <pre><code>&lt;?php
 
@@ -422,7 +422,7 @@ class TestParamHandler
 <p>Smile 封装了 <code>\Request::get()</code>,<code>\Request::post()</code>，分别用以获取 get，post 参数。<br>
 另外还有一个 <code>\Request::param()</code> 方法，会自动根据参数名字检查是 get 或是 post 参数，并返回。如果 get 和 post 都有这个参数，那么有限返回 post 参数。  </p>
 
-<p><code>\Request::get()</code>,<code>\Request::post()</code>,<code>\Request::param()</code> 三个方法用法一样，分别有三个参数，第一个参数是要获取的参数名字。第二个参数是默认值，如果这个变量不存在就返货默认值，默认值为 <code>null</code>，第三个参数为过滤规则，可以根据自己的需要传入参数。规则与 <code>filter_input</code> 一致。参见 <a href="http://php.net/manual/zh/filter.constants.php">php.net</a>  </p>
+<p><code>\Request::get()</code>, <code>\Request::post()</code>, <code>\Request::param()</code> 三个方法用法一样，分别有三个参数，第一个参数是要获取的参数名字。第二个参数是默认值，如果这个变量不存在就返货默认值，默认值为 <code>null</code>，第三个参数为过滤规则，可以根据自己的需要传入参数。规则与 <code>filter_input</code> 一致。参见 <a href="http://php.net/manual/zh/filter.constants.php">php.net</a>  </p>
 
 <p>如果要获取的参数是个数组，不用担心，框架会根据参数类型自动转换的，如果是个数组，那么这三个方法也会返回一个数组的。  </p>
 
