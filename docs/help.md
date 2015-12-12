@@ -19,12 +19,11 @@ Smile 也是一个非常自由的框架，没有强制的继承，命名等要�
 define("DEBUG", true); // 开启 debug 便于开发调试。在引入框架前定义。
 include 'smile.php'; // 引入框架。
 // 设置路由规则，并有一个匿名函数响应请求
-\Application::setRoutes(array(
-			'/\//' => function()
-			{
-			echo 'Hello World.'; // 输出信息
-			}
-			));
+\Application::setRoutes(array('/\//' => function()
+    {
+    	echo 'Hello World.'; // 输出信息
+	}
+));
 \Application::start(); //运行应用
 ```
 ## 环境要求
