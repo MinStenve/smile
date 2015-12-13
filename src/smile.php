@@ -119,6 +119,10 @@ class Application
             {
                 array_shift($params); // 去除数组第一项
                 $handlerRef = ClassAgent::getReflection($handler);
+                if(!$handlerRef)
+                {
+                    throw new ErrorException("Class '{$handler}' not found", 0, E_ERROR, __FILE__, __line__);
+                }
                 //执行前置操作 如果方法不存在，不会自动执行的 (需要检测是不是闭包)
                 !($handlerRef instanceof ReflectionClass) or ClassAgent::getAndInvoke($handlerRef, 'before', $params);
                 //执行请求方法，或者默认any方法
@@ -551,8 +555,9 @@ class Log
      * 写入日志
      * @param string $message 日志内容
      * @param int $level 日志级别
+     * @param string $filename 日志文件名
      */
-    public static function write($message, $level)
+    public static function write($message, $level, $filename = '')
     {
         if (strtoupper($level) != 'DEBUG' || DEBUG)
         {
@@ -560,53 +565,59 @@ class Log
             $message = '[' . Request::getClientIP() . ']' . $message;
             $message = '[' . date('Y-m-d H:i:s') . ']' . $message . "\n";
 			file_exists(LOG_PATH) or mkdir(LOG_PATH);
-            file_put_contents(LOG_PATH . date('Y-m-d') . '.log', $message, FILE_APPEND);
+            $filename = $filename ? $filename : date('Y-m-d') . '.log';
+            file_put_contents(LOG_PATH . $filename, $message, FILE_APPEND);
         }
     }
 
     /**
      * 写入日志 ERROR
      * @param string $message 日志内容
+     * @param string $filename 日志文件名
      */
-    public static function error($message)
+    public static function error($message, $filename = '')
     {
-        self::write($message, 'ERROR');
+        self::write($message, 'ERROR', $filename);
     }
 
     /**
      * 写入日志 WARNING
      * @param string $message 日志内容
+     * @param string $filename 日志文件名
      */
-    public static function warning($message)
+    public static function warning($message, $filename = '')
     {
-        self::write($message, 'WARNING');
+        self::write($message, 'WARNING', $filename);
     }
 
     /**
      * 写入日志 Notice
      * @param string $message 日志内容
+     * @param string $filename 日志文件名
      */
-    public static function notice($message)
+    public static function notice($message, $filename = '')
     {
-        self::write($message, 'NOTICE');
+        self::write($message, 'NOTICE', $filename);
     }
 
     /**
      * 写入日志 INFO
      * @param string $message 日志内容
+     * @param string $filename 日志文件名
      */
-    public static function info($message)
+    public static function info($message, $filename = '')
     {
-        self::write($message, 'INFO');
+        self::write($message, 'INFO', $filename);
     }
 
     /**
      * 写入日志 DEBUG
      * @param string $message 日志内容
+     * @param string $filename 日志文件名
      */
-    public static function debug($message)
+    public static function debug($message, $filename = '')
     {
-        self::write($message, 'DEBUG');
+        self::write($message, 'DEBUG', $filename);
     }
 }
 

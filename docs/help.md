@@ -665,10 +665,23 @@ define('DEBUG', true); // 开启调试模式。
 include 'smile.php'; // 引入框架。
 \Log::error('Error Logs'); // 记录一条 error 级别的错误
 \Log::write('Error Logs', 'ERROE'); // 和\Log::error('Error Logs');的作用是一样的。
-\Log::write('Error Logs', ''); // 和\Log::error('Error Logs');的作用是一样的。
-\Log::write('Admin login','Admin'); // 添加一个新的日志，日志类型为 Admin
+\Log::write('Admin login', 'Admin'); // 添加一个新的日志，日志类型为 Admin
 
 ```
+
+如果想对不同的日志写入不同的文件，而不是写入默认你的日期文件里。可以传入 `$filename` 来指定要写入的文件。如：
+
+```
+<?php
+
+define('DEBUG', true); // 开启调试模式。
+include 'smile.php'; // 引入框架。
+\Log::error('Error Logs', 'error.log'); //  指定写入文件名
+\Log::write('Admin login', 'Admin', 'admin.login.log'); // 指定写入日志文件
+
+```
+指定的日志文件也同样会在 `LOG_PATH` 目录下，且内容格式一致。
+
 ### 日志内容
 日志会按天生成一个文件，会自动在当天的日志文件里追歼日志。每条日志是一行。格式类似  
 
