@@ -795,10 +795,20 @@ define('DEBUG', true); // 开启调试模式。
 include 'smile.php'; // 引入框架。
 \Log::error('Error Logs'); // 记录一条 error 级别的错误
 \Log::write('Error Logs', 'ERROE'); // 和\Log::error('Error Logs');的作用是一样的。
-\Log::write('Error Logs', ''); // 和\Log::error('Error Logs');的作用是一样的。
-\Log::write('Admin login','Admin'); // 添加一个新的日志，日志类型为 Admin
+\Log::write('Admin login', 'Admin'); // 添加一个新的日志，日志类型为 Admin
 
 </code></pre>
+<p>如果想对不同的日志写入不同的文件，而不是写入默认你的日期文件里。可以传入 <code>$filename</code> 来指定要写入的文件。如：</p>
+
+<pre><code>&lt;?php
+
+define('DEBUG', true); // 开启调试模式。
+include 'smile.php'; // 引入框架。
+\Log::error('Error Logs', 'error.log'); //  指定写入文件名
+\Log::write('Admin login', 'Admin', 'admin.login.log'); // 指定写入日志文件
+
+</code></pre>
+<p>指定的日志文件也同样会在  <code>LOG_PATH </code>` 目录下，且内容格式一致。</p>
 
 <h3>
 <a id="日志内容" class="anchor" href="#%E6%97%A5%E5%BF%97%E5%86%85%E5%AE%B9" aria-hidden="true"><span class="octicon octicon-link"></span></a>日志内容</h3>
