@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><?php echo $title; ?></title>
+    <link rel="stylesheet" href="../assets/blog.css" type="text/css">
+  </head>
+  <body>
+    <div id="body">
+      <div id="header">
+        <div style="float:right">
+
+            <a href="/compose">New post</a> -
+            <a href="/auth/logout?next=url_escape(request.uri) }}">Sign out</a>
+        </div>
+        <h1><a href="/">blog_title</a></h1>
+      </div>
+      <div id="content">
+      <?php if(isset($error)): ?>
+      <span style="color: red">Error: <?php echo $error; ?></span><p>
+      <?php endif; ?>
+
+<form action="Login" method="POST">
+  Email: <input name="email" type="text"><br>
+  Password: <input name="password" type="password"><br>
+  <input type="submit">
+</form>
+
+      </div>
+    </div>
+  </body>
+</html>

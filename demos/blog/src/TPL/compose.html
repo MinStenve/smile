@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title><?php echo $title; ?></title>
+    <link rel="stylesheet" href="../assets/blog.css" type="text/css">
+  </head>
+  <body>
+    <div id="body">
+      <div id="header">
+        <div style="float:right">
+
+            <a href="/compose">New post</a> -
+            <a href="/auth/logout?next=url_escape(request.uri) }}">Sign out</a>
+        </div>
+        <h1><a href="/">blog_title</a></h1>
+      </div>
+      <div id="content">
+
+        <form action="" method="post" class="compose">
+    <div style="margin-bottom:5px"><input name="title" type="text" class="title" /></div>
+    <div style="margin-bottom:5px"><textarea name="content" rows="30" cols="40" class="markdown"></textarea></div>
+    <div>
+      <div style="float:right"><a href="http://daringfireball.net/projects/markdown/syntax">Cancel</a></div>
+      <input type="submit" value="Publish post" class="submit"/>
+    </div>
+  </form>
+
+      </div>
+    </div>
+  </body>
+</html>
+
